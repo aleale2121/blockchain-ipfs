@@ -1,0 +1,35 @@
+version: "3"
+services:
+  ipfs:
+    image: ipfs/kubo:latest  
+    volumes:
+      - ipfs-staging:/export
+      - ipfs-data:/data/ipfs
+
+    ports:
+      - "4001:4001"
+      - "4001:4001/udp"
+      - "8080:8080"
+      - "5001:5001"
+    environment:
+      - IPFS_PROFILE=server  
+    networks:
+      - app-ipfs-network
+
+  app:
+    build:
+      context: .
+    depends_on:
+      - ipfs
+    ports:
+      - "9090:9090/tcp"
+    restart: on-failure
+    networks:
+      - app-ipfs-network
+
+volumes:
+  ipfs-data:
+  ipfs-staging:
+
+networks:
+  app-ipfs-network:

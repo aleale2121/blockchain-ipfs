@@ -1,0 +1,122 @@
+{
+	"info": {
+		"_postman_id": "ce28e999-9ec7-45ab-87bb-4e915d0bec3f",
+		"name": "ipfs-fileverse",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "9598407"
+	},
+	"item": [
+		{
+			"name": "uploadfile",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/home/alefew/Downloads/ISIMSStudentManual.pdf"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/upload",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"upload"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get image",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "localhost:9090/file/{{id}}",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"file",
+						"{{id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ping",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:9090/ping",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"ping"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:9090",
+			"type": "string"
+		},
+		{
+			"key": "id",
+			"value": "QmWmhxyKtJJaWVa3QcJc5bZqERnMkubRubm6SSJLfV2FCn",
+			"type": "string"
+		}
+	]
+}
