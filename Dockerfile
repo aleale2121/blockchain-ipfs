@@ -11,7 +11,7 @@ WORKDIR /app
 COPY --from=builder /app/main .
 COPY app.env .
 COPY start.sh .
-COPY assets /app/assets
+RUN mkdir /app/assets
 RUN chmod +x /app/main
 
 EXPOSE 9090
