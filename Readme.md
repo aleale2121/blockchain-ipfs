@@ -1,4 +1,4 @@
-# Backend Assignment Stack
+# Project Overview
 
 This document provides a comprehensive overview of the technologies, tools, and project structure employed in the development of the backend, focusing on APIs for file upload and serving, with an emphasis on handling large files (100MB+) and utilizing IPFS for storage.
 
